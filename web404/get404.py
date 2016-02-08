@@ -80,7 +80,7 @@ def get_page_status(page):
 
     virtual_browser = Grab()
     check = open_page(virtual_browser, url)
-    if not check and not check.status and "200 OK" not in check.status:
+    if check is not False and check.status and "200 OK" not in check.status:
         is_visible = check_with_selenium(unicode(page.get('parent')),
                                          unicode(url))
         if is_visible:
